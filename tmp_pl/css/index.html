@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Relink</title>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link rel ="stylesheet" type="text/css" href="style.css" />
+	<meta charset ="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div class="map table col10">
+		<div class="table-row">
+			<div class="map table-cell"></div>
+		</div>
+	</div>
+
+	<aside class="logo col1">
+		<p class="header">Relink</p>
+		<p class="body disconnect">Disconnect</p>
+		<p class="body connect">Connect</p>
+	</aside>
+
+	<nav class="bottomleftmenu hoverable_around col1">
+		<div>
+		<p>Software</p>
+		</div>
+	</nav>
+
+	<div class="bottomrightmenu hoverable_around col1">
+		Get new quest
+	</div>
+
+	<div class="softwarelist inactivewhenoffile 3col">
+		<p class="hoverable_leftline">Password breaker</p>
+		<p class="hoverable_leftline">Decryptor</p>
+		<p class="hoverable_leftline">Tracer</p>
+		<p class="hoverable_leftline">Copy</p>
+		<p class="hoverable_leftline">Remove</p>
+	</div>
+
+	<nav class="leftpanel col1">
+		<div class="info">
+			<p class="header">RAM:</p>
+			<a href="#openrammap"><p class="body hoverable_underline ">0/1024 Kb</p></a>
+			<div id="openrammap" class="modalDialog_fromright inactivewhenoffile">
+				<div class="container">
+			        <a href="#close" title="Закрыть" class="close">X</a>
+				        <p class="header">▼ Running processes:</p>
+				        <div class="infomap table">
+				        	<div class="tablehead table-row">
+				        	<p class="table-cell">Name</p>
+				        	<p class="table-cell">PID</p>
+				        	<p class="table-cell">Size</p>
+				        	</div>
+				        	<div class="table-row">
+				        	<p class="table-cell">x-server</p>
+				        	<p class="table-cell">864</p>
+				        	<p class="table-cell">105Mb</p>
+				        	</div>
+				        	<div class="table-row">
+				        	<p class="table-cell">x-server</p>
+				        	<p class="table-cell">864</p>
+				        	<p class="table-cell">105Mb</p>
+				        	</div>
+				        	<div class="table-row">
+				        	<p class="table-cell">x-server</p>
+				        	<p class="table-cell">864</p>
+				        	<p class="table-cell">105Mb</p>
+				        	</div>
+				        </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="info">
+		<p class="header">HDD:</p>
+		<a href="#openhddmap"><p class="body hoverable_underline ">20/1024 Kb</p></a>
+			<div id="openhddmap" class="modalDialog_fromright inactivewhenoffile">
+				<div class="container table">
+				        <a href="#close" title="Закрыть" class="close">X</a>
+				        <div class="infomap table-row">
+				        	<p class="header">▼ Files in HDD:</p>
+				        	<div class="infomap table">
+				        	<div class="tablehead table-row">
+				        	<p class="table-cell">Name</p>
+				        	<p class="table-cell">Size</p>
+				        	</div>
+				        	<div class="table-row">
+				        	<p class="table-cell">file.txt</p>
+				        	<p class="table-cell">54Kb</p>
+				        	</div>
+				        	<div class="table-row">
+				        	<p class="table-cell">file.txt</p>
+				        	<p class="table-cell">54Kb</p>
+				        	</div>
+				        	<div class="table-row">
+				        	<p class="table-cell">file.txt</p>
+				        	<p class="table-cell">54Kb</p>
+				        	</div>
+				        	<div class="table-row">
+				        		<div class="dir">
+					        	<p class="table-cell">imgs</p>
+					        	<p class="table-cell">4096Kb</p>
+						        	<div class="table-row inside">
+						        	<p class="table-cell">file.img</p>
+						        	<p class="table-cell">54Kb</p>
+						        	</div>
+
+						        	<div class="table-row inside">
+						        	<p class="table-cell">file.img</p>
+						        	<p class="table-cell">54Kb</p>
+						        	</div>
+				        		</div>
+				        	</div>
+				        </div>
+				        </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="info">
+			<p class="header">Tracer:</p>
+			<p class="body">0%</p>
+			<div class="tracermap hoverable_around_outline"></div>
+		</div>
+
+		<div clsss="menuitem">
+			<a href="#openquestmap"><p class="header hoverable_underline ">Quests</p></a>
+			<div id="openquestmap" class="modalDialog_fromright inactivewhenoffile" style="width: 600px;">
+				<div class="container">
+				        <a href="#close" title="Закрыть" class="close" style="right: -324px; top: -5px;">X</a>
+
+				        <div class="container table">
+					        <div class="statusmap table-row">
+					        	<p class="header">▼ Quests:</p>
+					        	<div class="statusmap table">
+						        	<div class="tablehead table-row">
+						        	<p class="table-cell">Quest ID</p>
+						        	<p class="table-cell">Description</p>
+						        	<p class="table-cell">Award</p>
+						        	</div>
+						        	<div class="table-row">
+						        	<p class="table-cell">1488</p>
+						        	<p class="table-cell">Destroy server 8.8.8.8</p>
+						        	<p class="table-cell">1488$</p>
+						        	</div>
+						        	<div class="table-row">
+						        	<p class="table-cell">31415</p>
+						        	<p class="table-cell">Copy file 27182818.dat from server 12.12.12.112</p>
+						        	<p class="table-cell">53$</p>
+						        	</div>
+					        	</div>
+					        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div clsss="menuitem">
+			<a href="#openhardwaremap"><p class="header hoverable_underline ">Hardware</p></a>
+			<div id="openhardwaremap" class="modalDialog_fromright inactivewhenoffile" style="width: 600px;">
+				<div class="container">
+				        <a href="#close" title="Закрыть" class="close" style="right: -324px; top: -5px;">X</a>
+				        <div class="statusmap">
+				        	<p class="header">Gate: Alpha</p>
+				        	<div class="statusbox">
+				        	<p>Processor: 1 x 228MHz</p>
+				        	<p>RAM: 1 x 200MiB, 2 x 100MiB</p>
+				        	<p>HDD: 3 x 100MiB</p>
+				        	<p>Bandwidth: 1 x 2MiB/s</p>
+				        	<p>OS: linux 4.0.0.4</p>
+				        	</div>
+				        </div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div clsss="menuitem">
+			<a href="#openstatusmap"><p class="header hoverable_underline ">Status</p></a>
+			<div id="openstatusmap" class="modalDialog_fromright inactivewhenoffile" style="width: 600px;">
+				<div class="container">
+				        <a href="#close" title="Закрыть" class="close" style="right: -324px; top: -5px;">X</a>
+				        <div class="statusmap">
+				        	<p class="header">User: homk</p>
+				        	<div class="statusbox">
+				        	<p>Reg date: 01:01:0001</p>
+				        	</div>
+				        	<div class="statusbox">
+				        	<p>Neuromancer rating: 0</p>
+				        	<p>Relink rating: 0</p>
+				        	</div>
+				        	<div class="statusbox">
+				        	<p>Money: 0$</p>
+				        	<p>Money on a back accout: 0$</p>
+				        	</div>
+				        	<div class="statusbox">
+				        	<p>Gateway: Alpha</p>
+				        	<p>Processor: 1x100 MHz</p>
+				        	<p>RAM: 96 Mb</p>
+				        	<p>HDD: 1024 Mb</p>
+				        	</div>
+				        </div>
+				</div>
+			</div>
+		</div>
+
+		<div clsss="menuitem">
+			<a href="#openshopmap"><p class="header hoverable_underline ">Shop</p></a>
+			<div id="openshopmap" class="modalDialog_fromright inactivewhenoffile" style="width: 600px; height: 100%">
+				<div class="container">
+				        <a href="#close" title="Закрыть" class="close" style="right: -324px; top: -5px;">X</a>
+				        <div class="statusmap">
+				        	<ul class="shopmenu">
+				        		<li class="shoppage soft">
+				        			<ul>
+				        				<li>asdklf</li>
+				        				<li>asdklf</li>
+				        			</ul>
+				        		</li>
+				        		<li class="shoppage hard">
+				        			<ul>
+				        				<li>asdklf</li>
+				        				<li>asdklf</li>
+				        			</ul>
+				        		</li>
+				        		<li class="shoppage gate">
+				        			<ul>
+				        				<li>asdklf</li>
+				        				<li>asdklf</li>
+				        			</ul>
+				        		</li>
+				        	</ul>
+				        </div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<nav class="rightmenu 4col">
+		<div>
+		<span class="ip hoverable_around_outline">IP: 192 . 0 . 0 . 1 &darr;</span>
+		<span class="space">linux 4.0.0.4</span>
+		<span id="digital_watch" class="clock"></span>
+			<div class="iplist inactivewhenoffile">
+				<p>Last visited IP</p>
+				<p class="hoverable_leftline">8 . 8 . 8 . 8</p>
+				<p class="hoverable_leftline">192 . 168 . 0 . 1</p>
+				<p class="hoverable_leftline">127 . 0 . 0 . 1</p>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

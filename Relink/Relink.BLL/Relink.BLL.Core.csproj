@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7951C1B9-46E8-48A8-818A-E9809284E148}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Relink.BLL</RootNamespace>
+    <AssemblyName>Relink.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GatewayLogic.cs" />
+    <Compile Include="HardwareLogic.cs" />
+    <Compile Include="InternalBLL.cs" />
+    <Compile Include="LogLogic.cs" />
+    <Compile Include="QuestLogic.cs" />
+    <Compile Include="ServerLogic.cs" />
+    <Compile Include="SoftwareLogic.cs" />
+    <Compile Include="UserLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Relink.BLL.Interface\Relink.BLL.Interface.csproj">
+      <Project>{55f508a1-20b4-4bc4-b0e3-44e7bae50d1d}</Project>
+      <Name>Relink.BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Relink.DAL.Interface\Relink.DAL.Interface.csproj">
+      <Project>{25e9b05a-2a0d-422d-aaf4-cf8fdc75b5dd}</Project>
+      <Name>Relink.DAL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Relink.DAL.Textfile\Relink.DAL.Textfile.csproj">
+      <Project>{90adc941-78bb-4b65-a660-e79e7ef97f2f}</Project>
+      <Name>Relink.DAL.Textfile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\User\Relink.Entities.csproj">
+      <Project>{192d8e23-1c81-4641-8c14-8740382fc232}</Project>
+      <Name>Relink.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,41 @@
+﻿@using Relink.PL.Providers;
+
+<div clsss="menuitem">
+    <a href="#openshopmap"><p class="header hoverable_underline ">Shop</p></a>
+    <div id="openshopmap" class="modalDialog_fromright inactivewhenoffile" style="width: 600px; height: 100%">
+        <div class="container">
+            <a href="#close" title="Закрыть" class="close" style="right: -324px; top: -5px;">X</a>
+            <div class="statusmap">
+                <ul class="shopmenu">
+                    <li class="shoppage soft">
+                        <span class="soft">Software</span>
+                        <ul class="soft">
+                            @foreach (var item in LogicProvider.softwareLogic.GetAllSoftware())
+                            {
+                                <li>@item</li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="shoppage hard">
+                        <span class="hard">Hardware</span>
+                        <ul class="hard">
+                            @foreach (var item in LogicProvider.hardwareLogic.GetAllHardware())
+                            {
+                                    <li>@item</li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="shoppage gate">
+                        <span class="gate">Gateway</span>
+                        <ul class="gate">
+                            @foreach (var item in LogicProvider.gatewayLogic.GetAllGateway())
+                            {
+                                    <li>@item</li>
+}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

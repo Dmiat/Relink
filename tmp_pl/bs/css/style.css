@@ -1,0 +1,91 @@
+body {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #111;
+	font-size: 20px;
+	color: #006600;
+}
+
+
+
+
+
+
+div.ntable {
+	display: table;
+}
+
+div.tablerow {
+	display: table-row;
+}
+
+div.tablecell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
+
+
+
+div.map {
+	position: absolute;
+	right: 0;
+	height: 90%;
+}
+
+div.map div.tablecell {
+	background: url("../img/wmap.png") no-repeat;
+	background-size: 100%;
+}
+
+
+
+
+
+nav.menu {
+	position: absolute;
+	background-color: #222222;
+	border: 1px solid #007700;
+}
+
+nav.menu.top {
+	top: 0;
+	left: 0;
+	height: 50px;
+	padding: 1ex;
+}
+
+nav.menu.left{
+	top: 50px;
+	left: 0;
+	bottom: 160px;
+}
+nav.menu.settings{
+	top: 800px;
+	left: 0;
+	height: 100px;
+	border-bottom-right-radius: 200px;
+}
+
+nav.menu.bottom{
+	bottom: 0;
+	left: 0;
+	padding: 10px 5px;
+	text-align: center;
+	border-top-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+
+nav.menu.right{
+	top: 0;
+	right: 0;
+}
+
+
+
+
