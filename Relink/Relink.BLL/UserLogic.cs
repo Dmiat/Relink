@@ -82,14 +82,7 @@ namespace Relink.BLL
 
 		public User Load()
 		{
-			string[] userdat = userDAO.Load();
-
-			User user = new User(userdat[0]);
-
-			user.Money = Int32.Parse(userdat[1]);
-			user.MoneyBank = Int32.Parse(userdat[2]);
-
-			return user;
+			return userDAO.Load();
 		}
 
 		public void Save(User user)

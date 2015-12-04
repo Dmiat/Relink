@@ -7,7 +7,7 @@
 		<div class="statusmap">
 			<p class="header">Gate: Alpha</p>
 			<div class="statusbox">
-                <p>Gateway: @(LogicProvider.gate)</p>
+                <p>Gateway: @(LogicProvider.gate[0])</p>
                 @foreach (var item in LogicProvider.hardware)
                 {
                     <p>@item.ToString();</p>

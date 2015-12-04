@@ -28,7 +28,7 @@ namespace Relink.BLL
 			throw new NotImplementedException();
 		}
 
-		public bool Connect(User user, IPAddress serverIP)
+		public bool Connect(User user, IPEndPoint serverIP)
 		{	
 			if (onConnect != null) // to method
 						// get state

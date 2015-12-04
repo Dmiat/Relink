@@ -5,7 +5,7 @@ namespace Relink.DAL.Interface
 {
 	public interface IUserDAO
 	{
-		string[] Load();
+		User Load();
 
 		int GetPasswd();
 		void Save(User user);

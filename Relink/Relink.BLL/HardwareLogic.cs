@@ -10,31 +10,23 @@ namespace Relink.BLL
 	public class HardwareLogic : IHardwareLogic
 	{
 		private IHardwareDAO hardwareDAO = new HardwareTextfile();
-		private HashSet<Hardware> allHardware = new HashSet<Hardware>();
+		private List<Hardware> allHardware = new List<Hardware>();
 
 		public IEnumerable<Hardware> GetAllHardware()
 		{
 			return allHardware;
                 }
 
-		public HashSet<Hardware> Load()
+		public List<Hardware> Load()
 		{
 			allHardware = hardwareDAO.GetAllHardware();
 
-			HashSet<Hardware> hard = new HashSet<Hardware>();
+			List<Hardware> hard = new List<Hardware>();
 
-			string[] harddat = hardwareDAO.Load();
-
-			foreach (var item in harddat)
-			{
-				hard.Add(
-					new Hardware(item));
-			}
-
-			return hard;
+			return hardwareDAO.Load();
 		}
 
-		public void Save(HashSet<Hardware> hardware)
+		public void Save(List<Hardware> hardware)
 		{
 			hardwareDAO.Save(hardware);
 		}

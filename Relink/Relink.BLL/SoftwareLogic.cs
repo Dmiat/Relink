@@ -4,37 +4,27 @@ using Relink.DAL.Textfile;
 using Relink.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Relink.BLL
 {
 	public class SoftwareLogic : ISoftwareLogic
 	{
 		private static ISoftwareDAO softwareDAO = new SoftwareTextfile();
-		private HashSet<Software> allSoftware = new HashSet<Software>();
+		private List<Software> allSoftware = new List<Software>();
 
 		public IEnumerable<Software> GetAllSoftware()
 		{
 			return allSoftware; // TODO : ToList()
 		}
 
-		public HashSet<Software> Load()
+		public List<Software> Load()
 		{
-			allSoftware = softwareDAO.GetAllSoftware();
-
-			HashSet<Software> usersoft = new HashSet<Software>();
-
-			string[] softdat = softwareDAO.Load();
-
-			foreach (var item in softdat)
-			{
-				usersoft.Add(
-					new Software(item));
-			}
-
-			return usersoft;
+			allSoftware = softwareDAO.GetAllSoftware().ToList();
+			return softwareDAO.Load().ToList();
 		}
 
-		public void Save(HashSet<Software> software)
+		public void Save(List<Software> software)
 		{
 			softwareDAO.Save(software);
 		}

@@ -4,46 +4,39 @@ using System.Configuration;
 using System.IO;
 using Relink.Entities;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Relink.DAL.Textfile
 {
 	public class SoftwareTextfile : ISoftwareDAO
 	{
-		private string workFolderPath = ConfigurationManager.AppSettings["workFolderPath"];
-		private string softwareDatFileName = ConfigurationManager.AppSettings["FileName_softwareFile"];
-		private string allSoftwareFileName = ConfigurationManager.AppSettings["FileName_allSoftware"];
-		
+		private string workFolderPath = InternalDAO.workFolderPath;
+		private string softwareDatFileName = InternalDAO.softwareDatFileName;
+		private string allSoftwareFileName = InternalDAO.allSoftwareFileName;
 
-		public string[] Load()
+		public List<Software> Load()
 		{
-			/*
-			 * Format:
-			 * name
-			 */
 			using (StreamReader fin = new StreamReader(
 							new FileStream(
 								Path.Combine(workFolderPath, softwareDatFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				return fin.ReadLine().Trim().Split(' ');
+				return JsonConvert.DeserializeObject<List<Software>>(fin.ReadLine());
 			}
 		}
 
-		public void Save(HashSet<Software> software)
+		public void Save(List<Software> software)
 		{
 			using (StreamWriter fout = new StreamWriter(
 								new FileStream(
 									Path.Combine(workFolderPath, softwareDatFileName),
 									FileMode.Open, FileAccess.Write)))
 			{
-				foreach (var item in software)
-				{
-					fout.Write(item.ToString() + " ");
-				}
+				fout.WriteLine(JsonConvert.SerializeObject(software));
 			}
 		}
 
-		public HashSet<Software> GetAllSoftware()
+		public IEnumerable<Software> GetAllSoftware()
 		{
 			HashSet<Software> output = new HashSet<Software>();
                         using (StreamReader fin = new StreamReader(
@@ -51,13 +44,8 @@ namespace Relink.DAL.Textfile
 									Path.Combine(workFolderPath, allSoftwareFileName),
 									FileMode.Open, FileAccess.Read)))
 			{
-				foreach (var item in fin.ReadLine().Trim().Split(';'))
-				{
-					output.Add(new Software(item));
-                                } 
+				return JsonConvert.DeserializeObject<List<Software>>(fin.ReadLine());
 			}
-
-			return output;
 		}
 	}
 }

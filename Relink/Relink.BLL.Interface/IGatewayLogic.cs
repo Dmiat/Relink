@@ -6,8 +6,8 @@ namespace Relink.BLL.Interface
 {
 	public interface IGatewayLogic
 	{
-		Gateway Load();
-		void Save(Gateway gate);
+		List<Gateway> Load();
+		void Save(List<Gateway> gate);
 		IEnumerable<Gateway> GetAllGateway();
 	}
 }

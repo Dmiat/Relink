@@ -10,25 +10,20 @@ namespace Relink.BLL
 	public class GatewayLogic : IGatewayLogic
 	{
 		private IGatewayDAO gatewayDAO = new GatewayTextfile();
-		private HashSet<Gateway> allGateway = new HashSet<Gateway>();
+		private List<Gateway> allGateway = new List<Gateway>();
 
 		public IEnumerable<Gateway> GetAllGateway()
 		{
 			return allGateway;
 		}
 
-		public Gateway Load()
+		public List<Gateway> Load()
 		{
 			allGateway = gatewayDAO.GetAllGateway();
-
-			string[] gatedat = gatewayDAO.Load();
-
-			Gateway gate = new Gateway(gatedat[0]);
-
-			return gate;
+			return gatewayDAO.Load();
 		}
 
-		public void Save(Gateway gate)
+		public void Save(List<Gateway> gate)
 		{
 			gatewayDAO.Save(gate);
 		}

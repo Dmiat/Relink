@@ -4,16 +4,17 @@ using System.Configuration;
 using System.IO;
 using Relink.Entities;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Relink.DAL.Textfile
 {
 	public class GatewayTextfile : IGatewayDAO
 	{
-		private string workFolderPath = ConfigurationManager.AppSettings["workFolderPath"];
-		private string gatewayDatFileName = ConfigurationManager.AppSettings["FileName_gatewayFile"];
-		private string allGatewayDatFileName = ConfigurationManager.AppSettings["FileName_allGateway"];
+		private string workFolderPath = InternalDAO.workFolderPath;
+		private string gatewayDatFileName = InternalDAO.gatewayDatFileName;
+		private string allGatewayDatFileName = InternalDAO.allGatewayDatFileName;
 
-		public string[] Load()
+		public List<Gateway> Load()
 		{
 			/*
 			 * Format:
@@ -24,37 +25,32 @@ namespace Relink.DAL.Textfile
 								Path.Combine(workFolderPath, gatewayDatFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				return fin.ReadLine().Trim().Split(' ');
+				return JsonConvert.DeserializeObject<List<Gateway>>(fin.ReadLine());
 			}
 		}
 
-		void IGatewayDAO.Save(Gateway gate)
+		void IGatewayDAO.Save(List<Gateway> gate)
 		{
 			using (StreamWriter fout = new StreamWriter(
 							new FileStream(
 								Path.Combine(workFolderPath, gatewayDatFileName),
 								FileMode.Open, FileAccess.Write)))
 			{
-				fout.WriteLine(gate.ToString());
+				fout.WriteLine(JsonConvert.SerializeObject(gate));
 			}
 		}
 
-		public HashSet<Gateway> GetAllGateway()
+		public List<Gateway> GetAllGateway()
 		{
-			HashSet<Gateway> output = new HashSet<Gateway>();
+			List<Gateway> output = new List<Gateway>();
 
 			using (StreamReader fin = new StreamReader(
 							new FileStream(
 								Path.Combine(workFolderPath, allGatewayDatFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				foreach (var item in fin.ReadLine().Trim().Split(';'))
-				{
-					output.Add(new Gateway(item));
-				}
+				return JsonConvert.DeserializeObject<List<Gateway>>(fin.ReadLine());
 			}
-
-			return output;
 		}
 	}
 }

@@ -4,17 +4,18 @@ using System.Configuration;
 using System.IO;
 using Relink.Entities;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Relink.DAL.Textfile
 {
 	public class HardwareTextfile : IHardwareDAO
 	{
-		private string workFolderPath = ConfigurationManager.AppSettings["workFolderPath"];
-		private string hardwareDatFileName = ConfigurationManager.AppSettings["FileName_hardwareFile"];
-		private string allHardwareFileName = ConfigurationManager.AppSettings["FileName_allHardware"];
+		private string workFolderPath = InternalDAO.workFolderPath;
+		private string hardwareDatFileName = InternalDAO.hardwareDatFileName;
+		private string allHardwareFileName = InternalDAO.allHardwareFileName;
 
 
-		public string[] Load()
+		public List<Hardware> Load()
 		{
 			/*
 			 * Format:
@@ -26,40 +27,32 @@ namespace Relink.DAL.Textfile
 								Path.Combine(workFolderPath, hardwareDatFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				return fin.ReadLine().Trim().Split(' ');
+				return JsonConvert.DeserializeObject<List<Hardware>>(fin.ReadLine());
 			}
 		}
 
-		public void Save(HashSet<Hardware> hardware)
+		public void Save(List<Hardware> hardware)
 		{
 			using (StreamWriter fout = new StreamWriter(
 							new FileStream(
 								Path.Combine(workFolderPath, hardwareDatFileName),
 								FileMode.Open, FileAccess.Write)))
 			{
-				foreach (var item in hardware)
-				{
-					fout.Write(item.ToString() + " ");
-				}
+				fout.WriteLine(JsonConvert.SerializeObject(hardware));
 			}
 		}
 
-		public HashSet<Hardware> GetAllHardware()
+		public List<Hardware> GetAllHardware()
 		{
-			HashSet<Hardware> output = new HashSet<Hardware>();
+			List<Hardware> output = new List<Hardware>();
 
 			using (StreamReader fin = new StreamReader(
 							new FileStream(
 								Path.Combine(workFolderPath, allHardwareFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				foreach (var item in fin.ReadLine().Trim().Split(';'))
-				{
-					output.Add(new Hardware(item));
-				}
+				return JsonConvert.DeserializeObject<List<Hardware>>(fin.ReadLine());
 			}
-
-			return output;
 		}
 	}
 }

@@ -6,8 +6,8 @@ namespace Relink.DAL.Interface
 {
 	public interface IGatewayDAO
 	{
-		string[] Load();
-		void Save(Gateway gate);
-		HashSet<Gateway> GetAllGateway();
+		List<Gateway> Load();
+		void Save(List<Gateway> gate);
+		List<Gateway> GetAllGateway();
 	}
 }

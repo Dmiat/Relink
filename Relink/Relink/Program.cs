@@ -23,10 +23,10 @@ namespace Relink
 		public static IServerLogic serverLogic = new ServerLogic();
 
 		public static User user;
-		public static Gateway gate;
-		public static HashSet<Software> software = new HashSet<Software>();
-		public static HashSet<Hardware> hardware = new HashSet<Hardware>();
-		public static HashSet<Quest> quest = new HashSet<Quest>();
+		public static List<Gateway> gate;
+		public static List<Software> software = new List<Software>();
+		public static List<Hardware> hardware = new List<Hardware>();
+		public static List<Quest> quest = new List<Quest>();
 
 		private static void Main(string[] args)
 		/*
@@ -46,7 +46,7 @@ namespace Relink
 				Load();
 				Show();
 
-				Server server = new Server(new IPAddress(new byte[] { 8, 8, 8, 8 }));
+				Server server = new Server(new IPEndPoint(new IPAddress(new byte[] { 8, 8, 8, 8 }), 440));
 				serverLogic.Connect(user, server.IP);
 
 				Show();

@@ -10,7 +10,7 @@ namespace Relink.BLL.Interface
 {
 	public interface IServerLogic
 	{
-		bool Connect(User user, IPAddress serverIP);
+		bool Connect(User user, IPEndPoint serverIP);
 		bool Disconnect(User user);
 		IEnumerable<File> GetFiles(Server server);
 		File GetFile(Server server, string filename);

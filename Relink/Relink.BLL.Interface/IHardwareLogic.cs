@@ -6,8 +6,8 @@ namespace Relink.BLL.Interface
 {
 	public interface IHardwareLogic
 	{
-		HashSet<Hardware> Load();
-		void Save(HashSet<Hardware> hardware);
+		List<Hardware> Load();
+		void Save(List<Hardware> hardware);
 		IEnumerable<Hardware> GetAllHardware();
         }
 }

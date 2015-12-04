@@ -3,26 +3,26 @@ using System;
 using System.Configuration;
 using System.IO;
 using Relink.Entities;
+using Newtonsoft.Json;
 
 namespace Relink.DAL.Textfile
 {
 	public class UserTextfile : IUserDAO
 	{
-		private string workFolderPath = ConfigurationManager.AppSettings["workFolderPath"];
-		private string userDatFileName = ConfigurationManager.AppSettings["FileName_userFile"];
+		private string workFolderPath = InternalDAO.workFolderPath;
+		private string userDatFileName = InternalDAO.userDatFileName;
 
-		public string[] Load()
-		/*
-		 * Format:
-		 * login password money moneyback
-		 */
+		public User Load()
 		{
 			using (StreamReader fin = new StreamReader(
 							new FileStream(
 								Path.Combine(workFolderPath, userDatFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				return fin.ReadLine().Trim().Split(' ');
+				JsonSerializerSettings settings = new JsonSerializerSettings();
+				settings.Converters.Add(new IPAddressConverter());
+				settings.Converters.Add(new IPEndPointConverter());
+				return JsonConvert.DeserializeObject<User>(fin.ReadLine(), settings);
 			}
 		}
 
@@ -38,7 +38,10 @@ namespace Relink.DAL.Textfile
 								Path.Combine(workFolderPath, userDatFileName),
 								FileMode.Open, FileAccess.Write)))
 			{
-				fout.Write(user.ToString());
+				JsonSerializerSettings settings = new JsonSerializerSettings();
+				settings.Converters.Add(new IPAddressConverter());
+				settings.Converters.Add(new IPEndPointConverter());
+				fout.WriteLine(JsonConvert.SerializeObject(user, settings));
 			}
 		}
 	}

@@ -6,8 +6,8 @@ namespace Relink.DAL.Interface
 {
 	public interface ISoftwareDAO
 	{
-		string[] Load();
-		void Save(HashSet<Software> software);
-		HashSet<Software> GetAllSoftware();
+		List<Software> Load();
+		void Save(List<Software> software);
+		IEnumerable<Software> GetAllSoftware();
 	}
 }

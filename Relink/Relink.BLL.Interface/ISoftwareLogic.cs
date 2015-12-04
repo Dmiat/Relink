@@ -6,8 +6,8 @@ namespace Relink.BLL.Interface
 {
 	public interface ISoftwareLogic
 	{
-		HashSet<Software> Load();
-		void Save(HashSet<Software> software);
+		List<Software> Load();
+		void Save(List<Software> software);
 		IEnumerable<Software> GetAllSoftware();
         }
 }

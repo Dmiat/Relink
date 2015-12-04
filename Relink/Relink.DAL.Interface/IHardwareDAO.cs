@@ -6,8 +6,8 @@ namespace Relink.DAL.Interface
 {
 	public interface IHardwareDAO
 	{
-		string[] Load();
-		void Save(HashSet<Hardware> hardware);
-		HashSet<Hardware> GetAllHardware();
+		List<Hardware> Load();
+		void Save(List<Hardware> hardware);
+		List<Hardware> GetAllHardware();
 	}
 }

@@ -4,10 +4,10 @@ namespace Relink.Entities
 {
 	public class Server
 	{
-		public IPAddress IP { get; set; }
+		public IPEndPoint IP { get; set; }
 		public string CoopName { get; set; }
 
-		public Server(IPAddress IPAddress)
+		public Server(IPEndPoint IPAddress)
 		{
 			this.IP = IPAddress;
 		}
