@@ -14,9 +14,19 @@
 				<p>Relink rating: @(LogicProvider.userLogic.GetRelinkRating(LogicProvider.user))</p>
 			</div>
 			<div class="statusbox">
-				<p>Money: @(LogicProvider.userLogic.GetMoney(LogicProvider.user))$</p>
-				<p>Money on a back accout: @(LogicProvider.userLogic.GetMoneyBank(LogicProvider.user))$</p>
+				<p id="money">Money: @(LogicProvider.userLogic.GetMoney(LogicProvider.user))$</p>
+				<p id="moneyinbank">Money on a back accout: @(LogicProvider.userLogic.GetMoneyBank(LogicProvider.user))$</p>
 			</div>
+
+			<p class="header">Gate: Alpha</p>
+			<div class="statusbox">
+				<p>Gateway: @(LogicProvider.gate[0].Name)</p>
+				@foreach (var item in LogicProvider.hardware)
+				{
+					<p>@item.Name;</p>
+				}
+			</div>
+
 		</div>
 	</div>
 </div>

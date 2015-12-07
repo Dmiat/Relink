@@ -112,6 +112,8 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Pages\panels\bottomRightMenu.cshtml" />
     <Content Include="Pages\panels\leftPanel_shopmap.cshtml" />
+    <Content Include="Pages\AJAX\GetQuest.cshtml" />
+    <Content Include="Pages\AJAX\BySome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -144,11 +146,16 @@
       <Project>{7951c1b9-46e8-48a8-818a-e9809284e148}</Project>
       <Name>Relink.BLL.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Relink.Entities.Interface\Relink.Entities.Interface.csproj">
+      <Project>{d5879734-85c7-4864-a572-80f3b5ebb6ac}</Project>
+      <Name>Relink.Entities.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\User\Relink.Entities.csproj">
       <Project>{192d8e23-1c81-4641-8c14-8740382fc232}</Project>
       <Name>Relink.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

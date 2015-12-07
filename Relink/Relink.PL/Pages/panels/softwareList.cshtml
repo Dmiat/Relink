@@ -3,6 +3,6 @@
 <div class="softwarelist inactivewhenoffile 3col">
     @foreach (var item in LogicProvider.software)
     {
-            <p class="hoverable_leftline">@item.ToString();</p>
+            <p id="softwarelist_@item.Name" class="hoverable_leftline">@item.Name;</p>
     }
 </div>

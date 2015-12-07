@@ -1,0 +1,15 @@
+﻿@using Relink.PL.Providers
+
+@{
+	var quest = LogicProvider.questLogic.Get();
+	if (LogicProvider.questLogic.Done(quest))
+	{
+		LogicProvider.questLogic.Success(LogicProvider.user, quest);
+	}
+	else
+	{
+		LogicProvider.questLogic.Failure(LogicProvider.user, quest);
+	}
+
+	Response.Write(LogicProvider.user.Money.ToString());
+}

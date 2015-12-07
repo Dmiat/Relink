@@ -17,11 +17,6 @@ namespace Relink.DAL.Textfile
 
 		public List<Hardware> Load()
 		{
-			/*
-			 * Format:
-			 * name
-			 */
-
 			using (StreamReader fin = new StreamReader(
 							new FileStream(
 								Path.Combine(workFolderPath, hardwareDatFileName),

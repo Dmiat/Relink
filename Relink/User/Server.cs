@@ -7,6 +7,8 @@ namespace Relink.Entities
 		public IPEndPoint IP { get; set; }
 		public string CoopName { get; set; }
 
+		// svg js css <- google it for hdd
+
 		public Server(IPEndPoint IPAddress)
 		{
 			this.IP = IPAddress;

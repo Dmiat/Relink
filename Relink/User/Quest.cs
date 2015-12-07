@@ -14,7 +14,6 @@ namespace Relink.Entities
 
 		public Quest(string name, int moneyReward = 0, int relinkReward = 0, int neuromancerReward = 0, int moneyPunish = 0, int relinkPunish = 0, int neuromancerPunish = 0)
 		{
-			//json
 			//newtonsoft.json (with ne get) get class JObject
 			this.Name = name;
 			this.MoneyReward = moneyReward;

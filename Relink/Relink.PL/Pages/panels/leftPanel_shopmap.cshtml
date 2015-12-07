@@ -12,7 +12,7 @@
                         <ul class="soft">
                             @foreach (var item in LogicProvider.softwareLogic.GetAllSoftware())
                             {
-                                <li>@item</li>
+                                <li id="@item.Name" class="hoverable_leftline">@item</li>
                             }
                         </ul>
                     </li>
@@ -21,7 +21,7 @@
                         <ul class="hard">
                             @foreach (var item in LogicProvider.hardwareLogic.GetAllHardware())
                             {
-                                    <li>@item</li>
+                                    <li id="@item.Name" class="hoverable_leftline">@item</li>
                             }
                         </ul>
                     </li>
@@ -30,7 +30,7 @@
                         <ul class="gate">
                             @foreach (var item in LogicProvider.gatewayLogic.GetAllGateway())
                             {
-                                    <li>@item</li>
+                                    <li id="@item.Name" class="hoverable_leftline">@item</li>
 }
                         </ul>
                     </li>

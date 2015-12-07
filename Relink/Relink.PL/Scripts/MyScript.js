@@ -1,6 +1,7 @@
 ﻿(function () {
 	var date = new Date(1970,2,13,4,51,8);
 
+    // offline click
 	$("aside").click
 	(
 		function () {
@@ -8,6 +9,7 @@
 		}
 	);
 
+    // clock
 	(function digitalWatch() {
 	    var years = date.getFullYear();
 	    var mounth = date.getMonth();
@@ -48,4 +50,24 @@
 	    date = new Date(years, mounth, days, hours, minutes, seconds);
 	    setTimeout(digitalWatch, 1000);
 	})();
+
+	$('#GetQuest').click(function (e) {
+
+	    $.ajax({
+	        url: "/Pages/AJAX/GetQuest.cshtml",
+	        type: "post",
+	    }).success(function (req) {
+	    	$("#money").text("Money:" + req + "$");
+	    });
+	})
+
+	$(".shopmenu li.shoppage li").click(function (e) {
+	    $.ajax({
+	        url: "/Pages/AJAX/BySome.cshtml",
+	        type: "post",
+	        data: $(e.target).attr("id"),
+	    }).success(function (req) {
+	    	$("#money").text("Money:" + req + "$");
+	    });
+	})
 })();
