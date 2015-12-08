@@ -21,7 +21,14 @@ namespace Relink.DAL.Textfile
 								Path.Combine(workFolderPath, softwareDatFileName),
 								FileMode.Open, FileAccess.Read)))
 			{
-				return JsonConvert.DeserializeObject<List<Software>>(fin.ReadLine());
+				string str = fin.ReadLine();
+
+				if (str == null)
+				{
+					return new List<Software>();
+				}
+
+                                return JsonConvert.DeserializeObject<List<Software>>(str);
 			}
 		}
 
@@ -38,13 +45,14 @@ namespace Relink.DAL.Textfile
 
 		public IEnumerable<Software> GetAllSoftware()
 		{
-			HashSet<Software> output = new HashSet<Software>();
                         using (StreamReader fin = new StreamReader(
 								new FileStream(
 									Path.Combine(workFolderPath, allSoftwareFileName),
 									FileMode.Open, FileAccess.Read)))
 			{
-				return JsonConvert.DeserializeObject<List<Software>>(fin.ReadLine());
+				string str = fin.ReadLine();
+                                var a = JsonConvert.DeserializeObject<List<Software>>(str);
+				return a;
 			}
 		}
 	}

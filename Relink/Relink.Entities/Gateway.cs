@@ -5,11 +5,30 @@ namespace Relink.Entities
 {
 	public class Gateway : ISellable
 	{
-		public Gateway(string name)
+		// {"Name":"TRINITY-1686a","Cost":"113750","MaxCPU":"8","MaxMemory":"128","MaxSecurity":"3","MaxBandwidth":"8","Rating":"10","Description":"TRINITY"}
+		public Gateway(string name, int[] cost, int maxCPU, int maxMemory, int maxSecurity, int maxBandwidth, int rating, string description)
 		{
 			this.Name = name;
+			this.Cost = cost;
+			this.MaxCPU = maxCPU;
+			this.MaxMemory = maxMemory;
+			this.MaxSecurity = maxSecurity;
+			this.MaxBandwidth = maxBandwidth;
+			this.Rating = rating;
+			this.Description = description;
 		}
+		
+		public string Name { get; set; }
+		public int[] Cost { get; }
+		public int MaxCPU { get; }
+		public int MaxMemory { get; }
+		public int MaxSecurity { get; }
+		public int MaxBandwidth { get; }
+		public int Rating { get; }
+		public string Description { get; }
 
+
+		#region operators
 		public static bool operator ==(Gateway rhs, Gateway lhs)
 			=> (rhs.Name == lhs.Name);
 
@@ -39,37 +58,6 @@ namespace Relink.Entities
 		{
 			return Name.GetHashCode();
 		}
-
-		public string Name { get; set; }
-
-		public override string ToString()
-		{
-			return $"{this.Name} _ _ _ _ _ _ _ _ {this.Cost().ToString()}";
-		}
-
-		public int Cost()
-		{
-			switch (this.Name)
-			{
-				case "gate1":
-					return 100;
-				case "gate2":
-					return 200;
-				case "gate3":
-					return 300;
-				case "gate4":
-					return 400;
-				case "gate5":
-					return 500;
-				case "gate6":
-					return 600;
-				case "gate7":
-					return 700;
-				case "gate8":
-					return 800;
-				default:
-					return -1;
-			}
-		}
+		#endregion
 	}
 }

@@ -1,0 +1,1 @@
+[{"Name":"CPU 20GHz","Cost":[250],"Speed":20,"Description":"CPU 20GHz"},{"Name":"CPU 60GHz","Cost":[1000],"Speed":60,"Description":"CPU 60GHz"},{"Name":"CPU 80GHz","Cost":[1300],"Speed":80,"Description":"CPU 80GHz"},{"Name":"CPU 100GHz","Cost":[3000],"Speed":100,"Description":"CPU 100GHz"},{"Name":"CPU 120GHz","Cost":[5000],"Speed":120,"Description":"CPU 120GHz"}]

@@ -30,14 +30,17 @@ namespace Relink.DAL.Textfile
 
 	internal static class InternalDAO
 	{
-		internal static string workFolderPath = ConfigurationManager.AppSettings["workFolderPath"];
-		internal static string hardwareDatFileName = ConfigurationManager.AppSettings["FileName_hardwareFile"];
-		internal static string allHardwareFileName = ConfigurationManager.AppSettings["FileName_allHardware"];
-		internal static string gatewayDatFileName = ConfigurationManager.AppSettings["FileName_gatewayFile"];
 		internal static string allGatewayDatFileName = ConfigurationManager.AppSettings["FileName_allGateway"];
+		internal static string allHardwareFileName = ConfigurationManager.AppSettings["FileName_allHardware"];
+		internal static string allSoftwareFileName = ConfigurationManager.AppSettings["FileName_allSoftware"];
+		internal static string gatewayDatFileName = ConfigurationManager.AppSettings["FileName_gatewayFile"];
+		internal static string memoryDatFileName = ConfigurationManager.AppSettings["FileName_allMemory"];
+		internal static string modemDatFileName = ConfigurationManager.AppSettings["FileName_allModem"];
+		internal static string processorDatFileName = ConfigurationManager.AppSettings["FileName_allProcessor"];
 		internal static string questDatFileName = ConfigurationManager.AppSettings["FileName_questFile"];
 		internal static string softwareDatFileName = ConfigurationManager.AppSettings["FileName_softwareFile"];
-		internal static string allSoftwareFileName = ConfigurationManager.AppSettings["FileName_allSoftware"];
 		internal static string userDatFileName = ConfigurationManager.AppSettings["FileName_userFile"];
+		internal static string UserHWDatFileName = ConfigurationManager.AppSettings["FileName_hardwareFile"];
+		internal static string workFolderPath = ConfigurationManager.AppSettings["workFolderPath"];
 	}
 }

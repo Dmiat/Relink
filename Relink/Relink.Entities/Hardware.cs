@@ -5,13 +5,18 @@ namespace Relink.Entities
 {
 	public class Hardware : ISellable
 	{
-		public Hardware(string name)
+		public Hardware(string name, int[] cost, string description)
 		{
 			this.Name = name;
+			this.Cost = cost;
+			this.Description = description;
 		}
 
 		public string Name { get; set; }
+		public int[] Cost { get; }
+		public string Description { get; }
 
+		#region operators
 		public static bool operator ==(Hardware rhs, Hardware lhs)
 			=> (rhs.Name == lhs.Name);
 
@@ -41,37 +46,6 @@ namespace Relink.Entities
 		{
 			return Name.GetHashCode();
 		}
-
-		public override string ToString()
-		{
-			return $"{this.Name} _ _ _ _ _ _ _ _ {this.Cost().ToString()}";
-		}
-
-		public int Cost()
-		{
-			switch (this.Name)
-			{
-				case "hard1":
-					return 100;
-				case "hard2":
-					return 200;
-				case "hard3":
-					return 300;
-				case "hard4":
-					return 400;
-				case "hard5":
-					return 500;
-				case "hard6":
-					return 600;
-				case "hard7":
-					return 700;
-				case "hard8":
-					return 800;
-				case "hard9":
-					return 900;
-				default:
-					return -1;
-			}
-		}
+		#endregion
 	}
 }

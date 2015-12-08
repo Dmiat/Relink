@@ -5,13 +5,22 @@ namespace Relink.Entities
 {
 	public class Software : ISellable
 	{
-		public Software(string name)
+		public Software(string name, int[] cost, int[] aviliableVersions, int[] size, string description)
 		{
 			this.Name = name;
+			this.Cost = cost;
+			this.AviliableVersions = aviliableVersions;
+			this.Size = size;
+			this.Description = description;
 		}
 
 		public string Name { get; set; }
+		public int[] Cost { get; }
+		public int[] AviliableVersions { get; }
+		public int[] Size { get; }
+		public string Description { get; }
 
+		#region operators
 		public static bool operator ==(Software rhs, Software lhs)
 			=> (rhs.Name == lhs.Name);
 
@@ -41,35 +50,6 @@ namespace Relink.Entities
 		{
 			return Name.GetHashCode();
 		}
-
-		public override string ToString()
-		{
-			return $"{this.Name} _ _ _ _ _ _ _ _ {this.Cost().ToString()}";
-		}
-
-		public int Cost()
-		{
-			switch (this.Name)
-			{
-				case "soft1":
-					return 100;
-				case "soft2":
-					return 200;
-				case "soft3":
-					return 300;
-				case "soft4":
-					return 400;
-				case "soft5":
-					return 500;
-				case "soft6":
-					return 600;
-				case "soft7":
-					return 700;
-				case "soft8":
-					return 800;
-				default:
-					return -1;
-			}
-		}
+		#endregion
 	}
 }

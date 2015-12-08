@@ -8,6 +8,6 @@ namespace Relink.Entities.Interface
 {
 	public interface ISellable
 	{
-		int Cost();
+		int[] Cost { get; }
 	}
 }

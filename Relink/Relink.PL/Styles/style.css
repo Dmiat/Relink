@@ -352,6 +352,18 @@ ul.shopmenu li.shoppage ul {
     border: 1px solid #454;
 }
 
+	ul.shopmenu li.shoppage ul p {
+		font-size: 2ex;
+		display: inline-block;
+		border-left: 1px solid #454;
+		width: 20%;
+		padding: 2px 10px;
+	}
+	ul.shopmenu li.shoppage ul p:first-child {
+		border-left: 1px solid #222;
+		width: 40%;
+	}
+
 ul.shopmenu li.shoppage ul.soft {
     position: absolute;
     left: 30px;
@@ -483,6 +495,7 @@ div.ramlist{
 
 .modalDialog_fromright {
 	font-size: 2ex;
+	overflow: auto;
 }
 
 nav.leftpanel div.modalDialog_fromright {
@@ -490,7 +503,6 @@ nav.leftpanel div.modalDialog_fromright {
 	top: 0;
 	left: 110%;
 	background-color: #222;
-	/*z-index: 99999;*/
 	display: none;
 	pointer-events: none;
 }
@@ -543,7 +555,7 @@ nav.leftpanel div.statusmap {
 	padding-bottom: 10px;
 }
 
-nav.leftpanel div.statusmap p{
+nav.leftpanel div.statusmap div.statusbox p{
 	width: 600px;
 }
 

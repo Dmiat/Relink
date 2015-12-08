@@ -20,9 +20,6 @@ namespace Relink.BLL
 		public List<Hardware> Load()
 		{
 			allHardware = hardwareDAO.GetAllHardware();
-
-			List<Hardware> hard = new List<Hardware>();
-
 			return hardwareDAO.Load();
 		}
 

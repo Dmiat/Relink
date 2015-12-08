@@ -6,21 +6,9 @@
 	var inputname = Request.Form.ToString();
 	ISellable some = default(ISellable);
 
-	if (inputname.Contains("soft"))
-	{
-		some = new Software(inputname);
-	}
 
-	if (inputname.Contains("hard"))
-	{
-		some = new Hardware(inputname);
-	}
 
-	if (inputname.Contains("gate"))
-	{
-		some = new Gateway(inputname);
-	}
-	LogicProvider.userLogic.AddMoney(LogicProvider.user, -some.Cost()); // to prop
-										// create method to cost
+	//LogicProvider.userLogic.AddMoney(LogicProvider.user, -some.Cost()); // to prop
+	// create method to cost
 	Response.Write(LogicProvider.user.Money.ToString());
 }

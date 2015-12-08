@@ -20,7 +20,7 @@ namespace Relink.PL.Providers
 		public static List<Hardware> hardware = new List<Hardware>();
 		public static List<Quest> quest = new List<Quest>();
 
-		internal static void Save()
+		public static void Save()
 		{
 			userLogic.Save(user);
 			gatewayLogic.Save(gate);
@@ -30,7 +30,7 @@ namespace Relink.PL.Providers
 			serverLogic.Save();
 		}
 
-		internal static void Load()
+		public static void Load()
 		{
 			user = userLogic.Load();
 			gate = gatewayLogic.Load();

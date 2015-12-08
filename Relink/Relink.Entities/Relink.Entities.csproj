@@ -52,6 +52,9 @@
     <Compile Include="Gateway.cs" />
     <Compile Include="Hardware.cs" />
     <Compile Include="JSON_BugFixes.cs" />
+    <Compile Include="Memory.cs" />
+    <Compile Include="Modem.cs" />
+    <Compile Include="Processor.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Software.cs" />
