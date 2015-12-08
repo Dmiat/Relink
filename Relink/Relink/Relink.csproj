@@ -63,9 +63,13 @@
       <Project>{7951c1b9-46e8-48a8-818a-e9809284e148}</Project>
       <Name>Relink.BLL.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\User\Relink.Entities.csproj">
-      <Project>{192d8e23-1c81-4641-8c14-8740382fc232}</Project>
-      <Name>Relink.Entities</Name>
+    <ProjectReference Include="..\Relink.Entities.Interface\Relink.Entities.Interface.csproj">
+      <Project>{d5879734-85c7-4864-a572-80f3b5ebb6ac}</Project>
+      <Name>Relink.Entities.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Relink.PL\Relink.PL.csproj">
+      <Project>{f37cf80d-56ca-40e4-9e03-90d628b64d85}</Project>
+      <Name>Relink.PL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

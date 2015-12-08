@@ -52,7 +52,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\User\Relink.Entities.csproj">
+    <ProjectReference Include="..\Relink.Entities.Interface\Relink.Entities.Interface.csproj">
+      <Project>{d5879734-85c7-4864-a572-80f3b5ebb6ac}</Project>
+      <Name>Relink.Entities.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Relink.Entities\Relink.Entities.csproj">
       <Project>{192d8e23-1c81-4641-8c14-8740382fc232}</Project>
       <Name>Relink.Entities</Name>
     </ProjectReference>
