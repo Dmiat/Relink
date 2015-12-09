@@ -10,7 +10,7 @@ namespace Relink.BLL
 	public class HardwareLogic : IHardwareLogic
 	{
 		private IHardwareDAO hardwareDAO = new HardwareTextfile();
-		private List<Hardware> allHardware = new List<Hardware>();
+		private List<Hardware> allHardware;
 
 		public IEnumerable<Hardware> GetAllHardware()
 		{

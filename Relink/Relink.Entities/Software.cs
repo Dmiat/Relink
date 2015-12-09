@@ -5,7 +5,7 @@ namespace Relink.Entities
 {
 	public class Software : ISellable
 	{
-		public Software(string name, int[] cost, int[] aviliableVersions, int[] size, string description)
+		public Software(string name, int[] cost = null, int[] aviliableVersions = null, int[] size = null, string description = "Empty")
 		{
 			this.Name = name;
 			this.Cost = cost;

@@ -14,13 +14,21 @@ namespace Relink.DAL.Textfile
 		private string memoryDatFileName = InternalDAO.memoryDatFileName;
 		private string modemDatFileName = InternalDAO.modemDatFileName;
 		private string UserHWDatFileName = InternalDAO.UserHWDatFileName;
-		
+
 		private List<Hardware> allHardware { get; } = new List<Hardware>(16);
-		private bool k = false;
+		private bool isLoaded = false;
+
+		private void EnshureLoad()
+		{
+			if (!isLoaded)
+			{
+				this.Load();
+			}
+		}
 
 		public List<Hardware> Load()
 		{
-			k = true;
+			isLoaded = true;
 			LoadProcessor(allHardware);
 			LoadMemory(allHardware);
 			LoadModem(allHardware);
@@ -44,7 +52,7 @@ namespace Relink.DAL.Textfile
 					return new List<Hardware>();
 				}
 
-                                return JsonConvert.DeserializeObject<List<Hardware>>(str);
+				return JsonConvert.DeserializeObject<List<Hardware>>(str);
 			}
 		}
 
@@ -56,7 +64,7 @@ namespace Relink.DAL.Textfile
 								FileMode.Open, FileAccess.Read)))
 			{
 				string str = fin.ReadLine();
-                                var a = JsonConvert.DeserializeObject<List<Hardware>>(str);
+				var a = JsonConvert.DeserializeObject<List<Hardware>>(str);
 				foreach (var item in a)
 				{
 					allHardware.Add(item);
@@ -136,13 +144,14 @@ namespace Relink.DAL.Textfile
 
 		public List<Hardware> GetAllHardware()
 		{
-			List<Hardware> output = new List<Hardware>(this.allHardware.Count);
+			EnshureLoad();
+                        List<Hardware> output = new List<Hardware>(16);
 
-			for (int i = 0; i < this.allHardware.Count - 1; ++i)
+			for (int i = 0; i < this.allHardware.Count; ++i)
 			{
-				output[i] = this.allHardware[i];
-                        }
+				output.Add(this.allHardware[i]);
+			}
 			return output;
-                }
+		}
 	}
 }

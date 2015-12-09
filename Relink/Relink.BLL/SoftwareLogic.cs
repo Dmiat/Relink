@@ -13,6 +13,19 @@ namespace Relink.BLL
 		private static ISoftwareDAO softwareDAO = new SoftwareTextfile();
 		private List<Software> allSoftware = new List<Software>();
 
+		public void Add(string softwarename, List<Software> swlist)
+		{
+			swlist.Add(GetFill(softwarename));
+		}
+
+		private Software GetFill(string softwarename)
+		{
+			var a = from item in allSoftware
+				where item.Name == softwarename
+				select item;
+			return a.First();
+		}
+
 		public IEnumerable<Software> GetAllSoftware()
 		{
 			return allSoftware; // TODO : ToList()

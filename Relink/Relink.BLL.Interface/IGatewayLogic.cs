@@ -9,5 +9,6 @@ namespace Relink.BLL.Interface
 		List<Gateway> Load();
 		void Save(List<Gateway> gate);
 		IEnumerable<Gateway> GetAllGateway();
+		void Change(string name, List<Gateway> gate);
 	}
 }

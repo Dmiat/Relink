@@ -472,11 +472,17 @@ nav.leftpanel p.body {
 
 
 nav.leftpanel div.hddmap {
-	height: 100px;
+	height: 100%;
+	width: 100%;
 
 	margin: 5px 0px;
-
 	border: 1px solid #090;
+}
+
+nav.leftpanel div.hddmap svg.svghddmap {
+	height: 700px;
+	width: 500px;
+	overflow: hidden;
 }
 
 nav.leftpanel div.tracermap {

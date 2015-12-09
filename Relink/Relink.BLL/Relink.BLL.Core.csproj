@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="GatewayLogic.cs" />
     <Compile Include="HardwareLogic.cs" />
+    <Compile Include="ImageLogic.cs" />
     <Compile Include="InternalBLL.cs" />
     <Compile Include="LogLogic.cs" />
     <Compile Include="QuestLogic.cs" />

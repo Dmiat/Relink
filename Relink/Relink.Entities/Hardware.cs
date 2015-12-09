@@ -12,6 +12,7 @@ namespace Relink.Entities
 			this.Description = description;
 		}
 
+
 		public string Name { get; set; }
 		public int[] Cost { get; }
 		public string Description { get; }

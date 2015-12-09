@@ -9,5 +9,6 @@ namespace Relink.BLL.Interface
 		List<Software> Load();
 		void Save(List<Software> software);
 		IEnumerable<Software> GetAllSoftware();
+		void Add(string softwarename, List<Software> swlist);
         }
 }

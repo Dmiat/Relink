@@ -1,0 +1,7 @@
+﻿@using Relink.BLL
+
+@{
+	Response.ContentType = "image/png";
+	Response.WriteBinary(ImageLogic.GetImage());
+	return;
+}

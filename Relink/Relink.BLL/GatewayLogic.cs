@@ -4,6 +4,7 @@ using Relink.DAL.Textfile;
 using Relink.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Relink.BLL
 {
@@ -26,6 +27,16 @@ namespace Relink.BLL
 		public void Save(List<Gateway> gate)
 		{
 			gatewayDAO.Save(gate);
+		}
+
+		public void Change(string name, List<Gateway> gate)
+		{
+			var gatewaylist = from item in this.allGateway
+				where item.Name == name
+				select item;
+			var thisgate = gatewaylist.First();
+
+			gate[0] = thisgate;
 		}
 	}
 }

@@ -1,14 +1,40 @@
 ﻿@using Relink.PL.Providers
-@using Relink.Entities
-@using Relink.Entities.Interface
+@using Relink.Entities;
 
 @{
-	var inputname = Request.Form.ToString();
-	ISellable some = default(ISellable);
+	string input = Request.Form.ToString();
 
+	string[] sdf = input.Split('+');
+	string type = sdf[0];
+	string name = sdf[1];
+	int thissoftcost = 0;
 
+	switch (type)
+	{
+		case "soft":
+			var softlist = from item in LogicProvider.softwareLogic.GetAllSoftware()
+				       where item.Name == name
+				       select item;
+			thissoftcost = softlist.First().Cost[0]; // TODO
+			LogicProvider.softwareLogic.Add(name, LogicProvider.software);
+			break;
+		case "hard":
+			var hardlist = from item in LogicProvider.hardwareLogic.GetAllHardware()
+				       where item.Name == name
+				       select item;
+			thissoftcost = hardlist.First().Cost[0]; // TODO
+			break;
+		case "gate":
+			var gatelist = from item in LogicProvider.gatewayLogic.GetAllGateway()
+				       where item.Name == name
+				       select item;
+			thissoftcost = gatelist.First().Cost[0]; // TODO
+			LogicProvider.gatewayLogic.Change(name, LogicProvider.gate);
+			break;
+		default:
+			throw new ArgumentException();
+	}
 
-	//LogicProvider.userLogic.AddMoney(LogicProvider.user, -some.Cost()); // to prop
-	// create method to cost
+	LogicProvider.userLogic.AddMoney(LogicProvider.user, -thissoftcost);
 	Response.Write(LogicProvider.user.Money.ToString());
 }

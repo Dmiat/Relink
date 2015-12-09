@@ -1,7 +1,7 @@
 ﻿@using Relink.PL.Providers;
 
 <a href="#openstatusmap"><p class="header hoverable_underline ">Status</p></a>
-<div id="openstatusmap" class="modalDialog_fromright inactivewhenoffile" style="width: 600px;">
+<div id="openstatusmap" class="modalDialog_fromright inactivewhenoffile" style="width: 650px;">
 	<div class="container">
 		<a href="#close" title="Закрыть" class="close" style="right: -324px; top: -5px;">X</a>
 		<div class="statusmap">
@@ -23,7 +23,6 @@
 				<p>Gateway: @(LogicProvider.gate[0].Name)</p>
 				@foreach (var item in LogicProvider.hardware)
 				{
-					<p>@item.Name;</p>
 				}
 			</div>
 

@@ -8,7 +8,7 @@ namespace Relink.BLL
 {
 	internal class InternalBLL
 	{
-		internal static int MaxMoneyReward { get; } = 2000; // TODO : ask DAL
+		internal static int MaxMoneyReward { get; } = 4000; // TODO : ask DAL
 		internal static int MaxRelinkReward { get; } = 4;
 		internal static int MaxNeuromancerReward { get; } = 4;
 	}
